@@ -5,6 +5,7 @@ Un exemple de projet spring cloud avec :
 * Serveur de configuration (SpringCloudServer)
 * Serveur Discovery (Eureka)
 * API Gateway
+* Docker compose
 
 ## Installation
 
@@ -45,24 +46,24 @@ Ensuite, via votre navigateur préféré, vous pouvez tester les urls suivantes:
 
 ## Serveur Discovery (Eureka)
 
-Sert à inventorier les services dans un annuaire (réalise le lien entre host et IP)
+- Sert à inventorier les services dans un annuaire (réalise le lien entre host et IP)
 
 http://discovery:8761
 
 ## Serveur de configuration (SpringCloudServer)
 
-Sert à centraliser les configurations des micro-services
-S'enregistre sur le serveur Discovery
-Est sécurisé par Spring Security
+- Sert à centraliser les configurations des micro-services
+- S'enregistre sur le serveur Discovery
+- Est sécurisé par Spring Security
 
 http://configserver:8888
 
 ## API Gateway
 
-Sert de Gateway
-S'enregistre sur le serveur Discovery
-S'appuie sur le serveur de configuration
-Est sécurisé par Spring Security
+- Sert de Gateway (proxy Zuul)
+- S'enregistre sur le serveur Discovery
+- S'appuie sur le serveur de configuration
+- Est sécurisé par Spring Security
 
 http://gateway:9000
 
