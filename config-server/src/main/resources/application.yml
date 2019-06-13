@@ -16,8 +16,12 @@ spring:
   cloud:
     config:
       server:
+        # avec local path
         native:
           searchLocations: classpath:/configurations/
+        # avec repo git
+        #git:
+        #  uri: https://github.com/omanoel/spring-cloud-exemple/config-server/src/main/resources/configurations
   security:
     user:
       name: my-username
