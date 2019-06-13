@@ -1,0 +1,69 @@
+---
+spring:
+  profiles: default
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: discovery
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+#-------------------------------------------------------
+# with multiple discovery servers (3)
+#-------------------------------------------------------
+---
+spring:
+  profiles: country1
+  application:
+    name: eureka-server-clustered 
+server:
+  port: 9001
+
+eureka:
+  instance:
+    hostname: my-discovery-country1.com
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://my-discovery-country2.com:9002/eureka/,,http://my-discovery-country3.com:9003/eureka/
+
+---
+spring:
+  profiles: country2
+  application:
+    name: eureka-server-clustered 
+server:
+  port: 9002
+
+eureka:
+  instance:
+    hostname: my-discovery-country2.com
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://my-discovery-country1.com:9001/eureka/,http://my-discovery-country3.com:9003/eureka/
+
+---
+spring:
+  profiles: country3
+  application:
+    name: eureka-server-clustered 
+server:
+  port: 9003
+
+eureka:
+  instance:
+    hostname: my-discovery-country3.com
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://my-discovery-country1.com:9001/eureka/,http://my-discovery-country2.com:9002/eureka/
+
