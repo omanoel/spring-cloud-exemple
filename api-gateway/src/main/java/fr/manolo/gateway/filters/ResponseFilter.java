@@ -1,4 +1,4 @@
-package services.filters;
+package fr.manolo.gateway.filters;
 
 import javax.servlet.http.HttpServletResponse;
 

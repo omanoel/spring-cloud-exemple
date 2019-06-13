@@ -1,4 +1,4 @@
-package services.filters;
+package fr.manolo.gateway.filters;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
