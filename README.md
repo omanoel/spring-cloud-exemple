@@ -30,21 +30,24 @@ sudo nano /etc/hosts
 
 Ajouter:
 
-127.0.0.1 dicovery
+```bash
+127.0.0.1 discovery
 127.0.0.1 configserver
 127.0.0.1 gateway
+```
 
-Ensuite, via votre navigateur préféré, vous pouvez tester les urls suivantes
+Ensuite, via votre navigateur préféré, vous pouvez tester les urls suivantes:
 
-http://discovery:8761
-http://configserver:8888/gateway/default
-http://gateway:9000
+* http://discovery:8761
+* http://configserver:8888/gateway/default
+* http://gateway:9000
 
 
 ## Serveur Discovery (Eureka)
 
 Sert à inventorier les services dans un annuaire (réalise le lien entre host et IP)
 
+http://discovery:8761
 
 ## Serveur de configuration (SpringCloudServer)
 
@@ -52,11 +55,15 @@ Sert à centraliser les configurations des micro-services
 S'enregistre sur le serveur Discovery
 Est sécurisé par Spring Security
 
+http://configserver:8888
+
 ## API Gateway
 
 Sert de Gateway
 S'enregistre sur le serveur Discovery
 S'appuie sur le serveur de configuration
 Est sécurisé par Spring Security
+
+http://gateway:9000
 
 ## 
