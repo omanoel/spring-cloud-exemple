@@ -55,7 +55,7 @@ http://discovery:8761
 - Sert à centraliser les configurations des micro-services
 - S'enregistre sur le serveur Discovery
 - Est sécurisé par Spring Security
-- S'appuie sur le file system avec native > searchLocations + profiles > active > native
+- S'appuie sur le file system pour le stockage des configurations (classpath:/configurations) avec native > searchLocations + profiles > active > native
 
 http://configserver:8888
 
