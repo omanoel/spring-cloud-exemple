@@ -7,5 +7,10 @@ spring:
       username: my-username
       password: my-password
       failFast: true
+  sleuth:
+    sampler:
+      percentage: 1.0
+  zipkin:
+    baseUrl: http://tracing-server:9411
 #encrypt:
 #  failOnError: false
