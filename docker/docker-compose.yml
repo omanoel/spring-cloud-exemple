@@ -26,6 +26,7 @@ services:
    
    admin-server:
      image: manolo/admin-server
+     entrypoint: ["./wait-for-it.sh","configserver:8888","--timeout=60","--","java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
      ports:
       - "9090:9090"
      links:
