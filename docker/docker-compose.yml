@@ -22,4 +22,20 @@ services:
       - discovery
       - configserver
      restart: on-failure
-      
+   
+   myvault:
+     image: vault
+     ports:
+      - "8200:8200"
+     volumes:
+      - ./vault/file:/vault/file:rw
+      - ./vault/config:/vault/config:rw
+     cap_add:
+      - IPC_LOCK
+     entrypoint: vault server -config=/vault/config/vault.json
+     
+   tracing:
+     image: openzipkin/zipkin
+     ports:
+      - "9411:9411"
+        
