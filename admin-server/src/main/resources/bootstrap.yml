@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: admin-server
+  cloud:
+    config:
+      uri: http://configserver:8888
+      username: my-username
+      password: my-password
+      failFast: true
+  sleuth:
+    sampler:
+      percentage: 1.0
+  zipkin:
+    baseUrl: http://tracing-server:9411
+      
